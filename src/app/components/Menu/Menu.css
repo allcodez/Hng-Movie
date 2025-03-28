@@ -1,0 +1,106 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-color: #161616;
+  clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.auth.page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.auth.page .container {
+  width: 80%;
+}
+
+.auth-container {
+  width: 80%;
+}
+
+.auth-hero {
+  width: 100%;
+  height: 100%;
+}
+
+.auth-row {
+  width: 100%;
+  display: flex;
+}
+
+.auth-row .auth-col:nth-child(1) {
+  flex: 1.5;
+}
+
+.auth-row .auth-col:nth-child(2) {
+  flex: 4;
+}
+
+.auth-col {
+  /* border: 1px solid rgba(255, 255, 255, 0.1); */
+  padding: 1em;
+}
+
+.auth-col h1 {
+  font-family: "Wremena";
+  font-size: 70px;
+  text-transform: none;
+  letter-spacing: 0 !important;
+}
+
+.auth-col h1 span {
+  text-transform: none;
+  letter-spacing: 0 !important;
+  font-weight: 400;
+}
+
+.auth.page section {
+  padding-top: 2em;
+}
+
+.auth-form .auth-row:nth-child(1) .auth-col:nth-child(1) {
+  padding-top: 2.25em;
+}
+
+.auth-subscribe h3 {
+  margin-bottom: 0.5em;
+}
+
+.auth-subscribe .input {
+  margin-top: 1em;
+}
+
+section.auth-socials {
+  padding-bottom: 4em;
+}
+
+.auth-social-link p a {
+  font-size: 36px;
+}
+
+@media (max-width: 900px) {
+  .auth.page .container {
+    width: 100%;
+  }
+
+  .auth-col h1 {
+    font-size: 50px;
+  }
+
+  .auth-row {
+    flex-direction: column;
+  }
+
+  .auth-col {
+    padding: 1em 0;
+  }
+}

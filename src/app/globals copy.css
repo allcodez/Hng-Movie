@@ -1,5 +1,5 @@
 :root {
-  --bg: #2d2d2d;
+  --bg: #0f0f0f;
   --text: #fff;
   --text-secondary: #555555;
   --text-darker: #2f2f2f;
@@ -62,7 +62,6 @@ body {
   height: 100%;
   background-color: var(--bg);
   color: var(--text);
-  overflow-x: hidden;
 }
 
 .container {
@@ -114,44 +113,6 @@ a {
   font-weight: 600;
   line-height: 125%;
   letter-spacing: -0.0025em;
-}
-
-input,
-textarea {
-  width: 100%;
-  padding: 1em 0;
-  color: var(--color-text-primary);
-  font-family: "Wremena";
-  font-size: 1.25em;
-  border: none;
-  outline: none;
-  background: none;
-  border-bottom: 1px solid #4a4a51;
-}
-
-::placeholder {
-  font-family: "Wremena";
-}
-
-.input {
-  margin-bottom: 1em;
-  display: flex;
-}
-
-.input button {
-  background: none;
-  border: none;
-  outline: none;
-  color: var(--color-text-primary);
-  border-bottom: 1px solid var(--color-text-secondary);
-  padding: 0 1em;
-  text-transform: uppercase;
-  font-size: 15px;
-  font-weight: 500;
-}
-
-.img .filter {
-  filter: brightness(0.8);
 }
 
 @media (max-width: 900px) {
