@@ -64,7 +64,7 @@ const MenuBar: React.FC<MenuBarProps> = ({ isOpen, toggleMenu, closeMenu }) => {
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
       searchMovies(searchQuery);
-    }, 500); // 500ms debounce
+    }, 500);
 
     return () => clearTimeout(delayDebounceFn);
   }, [searchQuery]);

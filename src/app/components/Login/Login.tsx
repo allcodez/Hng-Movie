@@ -44,7 +44,6 @@ const Login = ({ toggleAuthForm }: { toggleAuthForm: () => void }) => {
                 formData.password
             );
 
-            // Initialize bookmarks if not exists
             if (!localStorage.getItem("bookmarkedMovies")) {
                 localStorage.setItem("bookmarkedMovies", JSON.stringify([]));
             }
@@ -61,6 +60,7 @@ const Login = ({ toggleAuthForm }: { toggleAuthForm: () => void }) => {
             setIsSubmitting(false);
         }
     };
+
     return (
         <div className="auth page">
             <div className="auth-container">
@@ -68,9 +68,7 @@ const Login = ({ toggleAuthForm }: { toggleAuthForm: () => void }) => {
                     <div className="auth-row">
                         <div className="auth-col"></div>
                         <div className="auth-col">
-                            <h1>
-                                Login to see bookmarked movies
-                            </h1>
+                            <h1>Login to see bookmarked movies</h1>
                         </div>
                     </div>
                 </section>
@@ -78,35 +76,73 @@ const Login = ({ toggleAuthForm }: { toggleAuthForm: () => void }) => {
                 <section className="section auth-form">
                     <div className="auth-row">
                         <div className="auth-col">
-                            <p>
-                                <span>LOGIN</span>
-                            </p>
+                            <p><span>LOGIN</span></p>
                         </div>
                         <div className="auth-col">
-                            <form action="">
+                            {authError && (
+                                <div className="auth-error-message">
+                                    {authError}
+                                </div>
+                            )}
+                            <form onSubmit={handleSubmit}>
                                 <div className="input">
-                                    <input type="email" placeholder="Email" />
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        placeholder="Email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        className={errors.email ? "error" : ""}
+                                    />
+                                    {errors.email && (
+                                        <span className="error-message">{errors.email}</span>
+                                    )}
                                 </div>
                                 <div className="input">
-                                    <input type="password" placeholder="password" />
-                                    <button>Submit</button>
+                                    <div className="password-input-wrapper">
+                                        <input
+                                            type={showPassword ? "text" : "password"}
+                                            name="password"
+                                            placeholder="Password"
+                                            value={formData.password}
+                                            onChange={handleChange}
+                                            className={errors.password ? "error" : ""}
+                                        />
+                                        <button
+                                            type="button"
+                                            className="password-toggle"
+                                            onClick={() => setShowPassword(!showPassword)}
+                                        >
+                                            {showPassword ? <EyeSlash size={18} /> : <Eye size={18} />}
+                                        </button>
+                                    </div>
+                                    {errors.password && (
+                                        <span className="error-message">{errors.password}</span>
+                                    )}
                                 </div>
-                            </form>
-                            <p>Don't have an account?
                                 <button
+                                    type="submit"
+                                    className="submit-button"
+                                    disabled={isSubmitting}
+                                >
+                                    {isSubmitting ? "Logging in..." : "Login"}
+                                </button>
+                            </form>
+                            <p className="auth-toggle-text">
+                                Don&apos;t have an account?
+                                <button
+                                    type="button"
                                     onClick={toggleAuthForm}
-                                    className="text-blue-500 hover:underline cursor-pointer"
+                                    className="auth-toggle-button"
                                 >
                                     Sign up
                                 </button>
                             </p>
                         </div>
-
                     </div>
                 </section>
             </div>
         </div>
-
     );
 };
 

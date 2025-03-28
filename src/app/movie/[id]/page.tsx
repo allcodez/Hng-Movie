@@ -1,11 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import "./moviedetails.css";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import CustomEase from "gsap/CustomEase";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import { ReactLenis } from "@studio-freight/react-lenis";
 import { Bookmark, Star } from "iconsax-react";
 
 interface MovieDetails {
@@ -118,7 +113,6 @@ const MovieDetailsPage = ({ params }: { params: { id: string } }) => {
   };
 
   const director = movie.credits.crew.find(person => person.job === 'Director');
-  const topCast = movie.credits.cast.slice(0, 5);
 
   return (
       <div className="movie-page" ref={container}>

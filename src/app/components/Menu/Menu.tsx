@@ -5,9 +5,7 @@ import {
   useCallback,
   useRef,
   useLayoutEffect,
-  ReactNode,
 } from "react";
-import Link from "next/link";
 import "./Menu.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -15,16 +13,6 @@ import CustomEase from "gsap/CustomEase";
 import MenuBar from "../MenuBar/MenuBar";
 import SignUp from "../Signup/SignUp";
 import Login from "../Login/Login";
-
-interface MenuLink {
-  path: string;
-  label: string;
-}
-
-interface SocialLink {
-  url: string;
-  label: string;
-}
 
 
 const Menu = () => {
